@@ -1,9 +1,12 @@
-use shiro
+drop DATABASE if exists shiro;
+create DATABASE shiro;
+use shiro;
 
-if exists drop table user;
-if exists drop table role;
-if exists drop table user_role;
-if exists drop table permission;
+drop table if exists role_permission;
+drop table if exists user_role;
+drop table if exists user;
+drop table if exists role;
+drop table if exists permission;
 
 create table user(
 id int not null auto_increment,
