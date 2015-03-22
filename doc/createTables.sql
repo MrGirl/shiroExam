@@ -51,3 +51,11 @@ unique(role_id,permission_id),
 foreign key(role_id) references  role(id),
 foreign key(permission_id) references  permission(id)
 );
+
+begin;
+	insert into user(id,name,age,birthday,password)values(1,'zyd','27',timestamp("1988-02-04"),'E10ADC3949BA59ABBE56E057F20F883E');
+	insert into role(id,code,name)values(1,1,'admin'),(2,2,'normal');
+	insert into permission (id,permission)values(1,"user:*");
+	insert into user_role(user_id,role_id)values(1,1);
+	insert into role_permission(role_id,permission_id)values(1,1);
+rollback;
