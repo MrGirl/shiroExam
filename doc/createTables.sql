@@ -28,6 +28,7 @@ primary key(id)
 create table permission(
 id int not null auto_increment,
 permission varchar(100) not null,
+resource varchar(100) not null,
 primary key(id),
 unique(permission)
 );
@@ -58,4 +59,4 @@ begin;
 	insert into permission (id,permission)values(1,"user:*");
 	insert into user_role(user_id,role_id)values(1,1);
 	insert into role_permission(role_id,permission_id)values(1,1);
-rollback;
+commit;
